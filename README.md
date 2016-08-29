@@ -33,7 +33,7 @@ in the sequence they were assigned using setFlash. You can set message as follow
 Yii::$app->session->setFlash('success', 'This is the message');
 Yii::$app->session->setFlash('info', 'Your message');
 Yii::$app->session->setFlash('warning', 'Your message');
-Yii::$app->session->setFlash('danger', 'Your message');
+Yii::$app->session->setFlash('error', 'Your message');
 ```
 
 2) Simply add widget to your layout as follows:
@@ -49,7 +49,7 @@ Yii::$app->session->setFlash('danger', 'Your message');
         'message' => 'Your message',
     ],
     'clientOptions' => [
-        'type' => 'success',
+        'type' => \yii2mod\notify\BootstrapNotify::TYPE_SUCCESS,
         'showProgressbar' => true
     ]
 ]); ?>

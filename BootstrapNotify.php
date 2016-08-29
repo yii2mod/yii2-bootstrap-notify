@@ -11,16 +11,16 @@ use yii\helpers\Json;
  * Alert widget renders a message from session flash. All flash messages are displayed
  * in the sequence they were assigned using setFlash. You can set message as following:
  *
- * ~~~
+ * ```php
  * Yii::$app->session->setFlash('success', 'Your message');
  * Yii::$app->session->setFlash('info', 'Your message');
  * Yii::$app->session->setFlash('warning', 'Your message');
- * Yii::$app->session->setFlash('danger', 'Your message');
- * ~~~
+ * Yii::$app->session->setFlash('error', 'Your message');
+ * ```
  *
  * You can set the icon and another options as following:
  *
- * ~~~
+ * ```php
  *  Yii::$app->session->setFlash('info', [
  *      'icon' => 'glyphicon glyphicon-user',
  *      'title' => '<b>RBAC Manager for Yii 2</b>',
@@ -28,21 +28,21 @@ use yii\helpers\Json;
  *      'url' => 'https://github.com/yii2mod/yii2-rbac',
  *      'target' => '_blank'
  *  ]);
- * ~~~
+ * ```
  *
  * You can render your own message without the session flash as following:
  *
- * ~~~
+ * ```php
  * echo \yii2mod\notify\BootstrapNotify::widget([
  *      'useSessionFlash' => false,
  *      'options' => [
  *           'message' => 'Your message',
  *      ],
  *      'clientOptions' => [
- *           'type' => 'success'
+ *           'type' => \yii2mod\notify\BootstrapNotify::TYPE_SUCCESS
  *      ]
  *  ]);
- * ~~~
+ * ```
  *
  */
 class BootstrapNotify extends Widget
@@ -68,6 +68,20 @@ class BootstrapNotify extends Widget
     const TYPE_WARNING = 'warning';
 
     /**
+     * @var array the alert types configuration for the flash messages.
+     * This array is setup as $key => $value, where:
+     * - $key is the name of the session flash variable
+     * - $value is the bootstrap alert type (i.e. danger, success, info, warning)
+     */
+    public $alertTypes = [
+        'error' => self::TYPE_DANGER,
+        'danger' => self::TYPE_DANGER,
+        'success' => self::TYPE_SUCCESS,
+        'info' => self::TYPE_INFO,
+        'warning' => self::TYPE_WARNING
+    ];
+
+    /**
      * @var bool All the flash messages stored for the session are displayed and removed from the session
      * Defaults to true.
      */
@@ -80,16 +94,6 @@ class BootstrapNotify extends Widget
     public $useAnimation = true;
 
     /**
-     * @var array allowed notify types
-     */
-    protected $allowedTypes = [
-        self::TYPE_INFO,
-        self::TYPE_DANGER,
-        self::TYPE_SUCCESS,
-        self::TYPE_WARNING
-    ];
-
-    /**
      * @inheritdoc
      */
     public function run()
@@ -100,13 +104,13 @@ class BootstrapNotify extends Widget
             $session = Yii::$app->getSession();
             $flashes = $session->getAllFlashes();
             foreach ($flashes as $type => $data) {
-                if (in_array($type, $this->allowedTypes)) {
+                if (isset($this->alertTypes[$type])) {
                     if (is_array($data)) {
                         $this->options = ArrayHelper::merge($this->options, $data);
                     } else {
                         $this->options['message'] = $data;
                     }
-                    $this->clientOptions['type'] = $type;
+                    $this->clientOptions['type'] = $this->alertTypes[$type];
                     $this->renderMessage();
                     // Clear options and remove a flash message
                     $this->options = [];
