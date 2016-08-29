@@ -2,6 +2,10 @@ Alert Widget for Yii2 framework
 ======================
 Alert widget based on [Bootstrap Notify](http://bootstrap-notify.remabledesigns.com/)
 
+[![Latest Stable Version](https://poser.pugx.org/yii2mod/yii2-bootstrap-notify/v/stable)](https://packagist.org/packages/yii2mod/yii2-bootstrap-notify)
+[![Total Downloads](https://poser.pugx.org/yii2mod/yii2-bootstrap-notify/downloads)](https://packagist.org/packages/yii2mod/yii2-bootstrap-notify)
+[![License](https://poser.pugx.org/yii2mod/yii2-bootstrap-notify/license)](https://packagist.org/packages/yii2mod/yii2-bootstrap-notify)
+
 Installation 
 ------------
 
