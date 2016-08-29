@@ -1,4 +1,4 @@
-Alert Widget for Yii 2
+Alert Widget for Yii2 framework
 ======================
 Alert widget based on [Bootstrap Notify](http://bootstrap-notify.remabledesigns.com/)
 
