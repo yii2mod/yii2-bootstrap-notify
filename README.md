@@ -40,6 +40,13 @@ Yii::$app->session->setFlash('warning', 'Your message');
 Yii::$app->session->setFlash('error', 'Your message');
 ```
 
+Also, you can set multiple messages as follows:
+ 
+```php
+Yii::$app->session->setFlash('error', ['Error 1', 'Error 2']);
+```
+
+
 2) Simply add widget to your layout as follows:
 ```php
 <?php echo \yii2mod\notify\BootstrapNotify::widget(); ?>
