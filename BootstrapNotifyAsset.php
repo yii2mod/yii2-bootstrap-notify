@@ -6,6 +6,7 @@ use yii\web\AssetBundle;
 
 /**
  * Class BootstrapNotifyAsset
+ *
  * @package yii2mod\notify
  */
 class BootstrapNotifyAsset extends AssetBundle

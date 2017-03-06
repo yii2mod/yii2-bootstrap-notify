@@ -18,6 +18,12 @@ use yii\helpers\Json;
  * Yii::$app->session->setFlash('error', 'Your message');
  * ```
  *
+ * Multiple messages could be set as follows:
+ *
+ * ```php
+ * Yii::$app->session->setFlash('error', ['Error 1', 'Error 2']);
+ * ```
+ *
  * You can set the icon and another options as following:
  *
  * ```php
@@ -43,7 +49,6 @@ use yii\helpers\Json;
  *      ]
  *  ]);
  * ```
- *
  */
 class BootstrapNotify extends Widget
 {
@@ -78,7 +83,7 @@ class BootstrapNotify extends Widget
         'danger' => self::TYPE_DANGER,
         'success' => self::TYPE_SUCCESS,
         'info' => self::TYPE_INFO,
-        'warning' => self::TYPE_WARNING
+        'warning' => self::TYPE_WARNING,
     ];
 
     /**
@@ -105,14 +110,19 @@ class BootstrapNotify extends Widget
             $flashes = $session->getAllFlashes();
             foreach ($flashes as $type => $data) {
                 if (isset($this->alertTypes[$type])) {
-                    if (is_array($data)) {
+                    if (ArrayHelper::isAssociative($data)) {
                         $this->options = ArrayHelper::merge($this->options, $data);
+                        $this->clientOptions['type'] = $this->alertTypes[$type];
+                        $this->renderMessage();
                     } else {
-                        $this->options['message'] = $data;
+                        $data = (array)$data;
+                        foreach ($data as $i => $message) {
+                            $this->options['message'] = $message;
+                            $this->clientOptions['type'] = $this->alertTypes[$type];
+                            $this->renderMessage();
+                        }
                     }
-                    $this->clientOptions['type'] = $this->alertTypes[$type];
-                    $this->renderMessage();
-                    // Clear options and remove a flash message
+
                     $this->options = [];
                     $session->removeFlash($type);
                 }
@@ -124,8 +134,6 @@ class BootstrapNotify extends Widget
 
     /**
      * Render the message
-     *
-     * @return void
      */
     protected function renderMessage()
     {

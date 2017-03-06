@@ -6,6 +6,7 @@ use yii\web\AssetBundle;
 
 /**
  * Class AnimateAsset
+ *
  * @package yii2mod\notify
  */
 class AnimateAsset extends AssetBundle

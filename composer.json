@@ -1,29 +1,36 @@
 {
-  "name": "yii2mod/yii2-bootstrap-notify",
-  "description": "Alert widget based on Bootstrap Notify extension {@link http://bootstrap-notify.remabledesigns.com/)",
-  "type": "yii2-extension",
-  "keywords": ["yii2", "yii2 alert", "yii2 bootstrap alert"],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Igor Chepurnoy",
-      "email": "igorzfort@gmail.com"
+    "name": "yii2mod/yii2-bootstrap-notify",
+    "description": "Alert widget based on Bootstrap Notify extension {@link http://bootstrap-notify.remabledesigns.com/)",
+    "type": "yii2-extension",
+    "keywords": [
+        "yii2",
+        "yii2 alert",
+        "yii2 bootstrap alert"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Igor Chepurnoy",
+            "email": "igorzfort@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-bootstrap": "*",
+        "bower-asset/remarkable-bootstrap-notify": "*",
+        "bower-asset/animate.css": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "yii2mod\\notify\\": ""
+        }
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "bower-asset-library": "vendor/bower"
+        }
     }
-  ],
-  "require": {
-    "yiisoft/yii2": "*",
-    "yiisoft/yii2-bootstrap": "*",
-    "bower-asset/remarkable-bootstrap-notify": "*",
-    "bower-asset/animate.css": "*"
-  },
-  "autoload": {
-    "psr-4": {
-      "yii2mod\\notify\\": ""
-    }
-  },
-  "extra": {
-    "asset-installer-paths": {
-      "bower-asset-library": "vendor/bower"
-    }
-  }
 }
