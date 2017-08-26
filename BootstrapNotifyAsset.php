@@ -17,14 +17,14 @@ class BootstrapNotifyAsset extends AssetBundle
     public $sourcePath = '@bower/remarkable-bootstrap-notify';
 
     /**
-     * @var array
+     * @var array list of JavaScript files that this bundle contains.
      */
     public $js = [
         'bootstrap-notify.min.js',
     ];
 
     /**
-     * @var array
+     * @var array list of bundle class names that this bundle depends on.
      */
     public $depends = [
         'yii\web\YiiAsset',

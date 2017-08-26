@@ -1,6 +1,12 @@
-Alert Widget for Yii2 framework
-======================
-Alert widget based on [Bootstrap Notify](http://bootstrap-notify.remabledesigns.com/)
+<p align="center">
+    <a href="https://github.com/yiisoft" target="_blank">
+        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
+    </a>
+    <h1 align="center">Yii2 Notify Widget</h1>
+    <br>
+</p>
+
+Notify widget based on [Bootstrap Notify](http://bootstrap-notify.remabledesigns.com/)
 
 [![Latest Stable Version](https://poser.pugx.org/yii2mod/yii2-bootstrap-notify/v/stable)](https://packagist.org/packages/yii2mod/yii2-bootstrap-notify)
 [![Total Downloads](https://poser.pugx.org/yii2mod/yii2-bootstrap-notify/downloads)](https://packagist.org/packages/yii2mod/yii2-bootstrap-notify)
@@ -19,7 +25,7 @@ php composer.phar require --prefer-dist yii2mod/yii2-bootstrap-notify "*"
 
 or add
 
-```json
+```
 "yii2mod/yii2-bootstrap-notify": "*"
 ```
 

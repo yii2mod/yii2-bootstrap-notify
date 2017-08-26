@@ -17,7 +17,7 @@ class AnimateAsset extends AssetBundle
     public $sourcePath = '@bower/animate.css';
 
     /**
-     * @var array
+     * @var array list of CSS files that this bundle contains.
      */
     public $css = [
         'animate.min.css',
