@@ -75,3 +75,9 @@ Yii::$app->session->setFlash('error', ['Error 1', 'Error 2']);
 Alert Options 
 ----------------
 You can find them on the [options page](http://bootstrap-notify.remabledesigns.com/)
+
+
+## Support us
+
+Does your business depend on our contributions? Reach out and support us on [Patreon](https://www.patreon.com/yii2mod). 
+All pledges will be dedicated to allocating workforce on maintenance and new awesome stuff.
